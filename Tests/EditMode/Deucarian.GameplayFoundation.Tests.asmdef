@@ -1,0 +1,21 @@
+{
+  "name": "Deucarian.GameplayFoundation.Tests",
+  "rootNamespace": "Deucarian.GameplayFoundation.Tests",
+  "references": [
+    "Deucarian.GameplayFoundation"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "noEngineReferences": false
+}

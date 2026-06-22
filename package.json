@@ -1,0 +1,25 @@
+{
+  "name": "com.deucarian.gameplay-foundation",
+  "version": "0.1.0",
+  "displayName": "Deucarian Gameplay Foundation",
+  "description": "Pure C# gameplay identifiers, deterministic random, clocks, ticks, tags, stats, modifiers, and generic timing primitives.",
+  "unity": "2021.3",
+  "author": {
+    "name": "Deucarian"
+  },
+  "keywords": [
+    "gameplay",
+    "stats",
+    "modifiers",
+    "random",
+    "ticks"
+  ],
+  "dependencies": {},
+  "samples": [
+    {
+      "displayName": "Stat Modifier Primer",
+      "description": "Small pure C# example showing stable IDs, deterministic random, fixed ticks, and stat modifiers.",
+      "path": "Samples~/StatModifierPrimer"
+    }
+  ]
+}
