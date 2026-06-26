@@ -161,6 +161,127 @@ namespace Deucarian.GameplayFoundation.Tests
         }
 
         [Test]
+        public void ContentValidation_UniqueIdsPassForValidDefinitions()
+        {
+            var report = new ContentValidationReport();
+            ContentReferenceSet ids = ContentValidation.RequireUniqueIds(
+                new[]
+                {
+                    new ValidationRecord("content.alpha"),
+                    new ValidationRecord("content.beta")
+                },
+                "entry",
+                record => record.Id,
+                report,
+                requireAtLeastOne: true);
+
+            Assert.IsTrue(report.Succeeded);
+            Assert.AreEqual(2, ids.Count);
+            Assert.IsTrue(ids.Contains("content.alpha"));
+            Assert.IsTrue(ids.Contains("content.beta"));
+        }
+
+        [Test]
+        public void ContentValidation_DuplicateIdsFailClearly()
+        {
+            var report = new ContentValidationReport();
+            ContentValidation.RequireUniqueIds(
+                new[]
+                {
+                    new ValidationRecord("content.alpha"),
+                    new ValidationRecord("content.alpha")
+                },
+                "entry",
+                record => record.Id,
+                report,
+                requireAtLeastOne: true);
+
+            Assert.IsFalse(report.Succeeded);
+            Assert.AreEqual(1, report.ErrorCount);
+            StringAssert.Contains("Duplicate entry id 'content.alpha'.", report.GetMessages()[0]);
+        }
+
+        [Test]
+        public void ContentValidation_MissingRequiredIdsFailClearly()
+        {
+            var report = new ContentValidationReport();
+            ContentValidation.RequireId(string.Empty, "sample id", report);
+            ContentValidation.RequireUniqueIds(
+                new[] { new ValidationRecord(string.Empty) },
+                "entry",
+                record => record.Id,
+                report,
+                requireAtLeastOne: true);
+
+            string errors = string.Join("\n", report.GetMessages());
+            StringAssert.Contains("sample id is missing a stable id.", errors);
+            StringAssert.Contains("entry definition at index 0 is missing a stable id.", errors);
+        }
+
+        [Test]
+        public void ContentValidation_ReferencesPassWhenKnown()
+        {
+            var report = new ContentValidationReport();
+            var known = new ContentReferenceSet(new[] { "content.alpha", "content.beta" });
+
+            ContentValidation.RequireReferences(
+                new[] { "content.alpha", "content.beta" },
+                "entry",
+                known,
+                report,
+                requireAtLeastOne: true);
+
+            Assert.IsTrue(report.Succeeded);
+        }
+
+        [Test]
+        public void ContentValidation_InvalidReferencesFailClearly()
+        {
+            var report = new ContentValidationReport();
+            var known = new ContentReferenceSet(new[] { "content.alpha" });
+
+            ContentValidation.RequireReferences(
+                new[] { "content.alpha", "content.missing", "content.missing", string.Empty },
+                "entry",
+                known,
+                report,
+                requireAtLeastOne: true);
+
+            string errors = string.Join("\n", report.GetMessages());
+            StringAssert.Contains("entry reference 'content.missing' does not exist.", errors);
+            StringAssert.Contains("Duplicate entry reference 'content.missing'.", errors);
+            StringAssert.Contains("entry reference at index 3 is empty.", errors);
+        }
+
+        [Test]
+        public void ContentValidation_RangeChecksFailClearly()
+        {
+            var report = new ContentValidationReport();
+            ContentValidation.RequireGreaterThan(0d, 0d, "spawn interval", report);
+            ContentValidation.RequireAtLeast(double.NaN, 0d, "weight", report);
+
+            string errors = string.Join("\n", report.GetMessages());
+            StringAssert.Contains("spawn interval must be greater than 0.", errors);
+            StringAssert.Contains("weight must be at least 0.", errors);
+        }
+
+        [Test]
+        public void ContentValidation_NullOrEmptyInputsAreSafe()
+        {
+            var report = new ContentValidationReport();
+            ContentReferenceSet ids = ContentValidation.RequireUniqueIds<ValidationRecord>(
+                null,
+                "entry",
+                record => record.Id,
+                report);
+
+            ContentValidation.RequireReferences(null, "entry", ids, report);
+
+            Assert.IsTrue(report.Succeeded);
+            Assert.AreEqual(0, ids.Count);
+        }
+
+        [Test]
         public void RepresentativeStatEvaluation_HasNoSteadyStateAllocationsAfterWarmup()
         {
             StatBlock stats = CreateBaseDamage(10d);
@@ -199,6 +320,16 @@ namespace Deucarian.GameplayFoundation.Tests
             int priority = 0)
         {
             return new StatModifier(new StatModifierHandle(handle), source, Damage, operation, value, priority);
+        }
+
+        private sealed class ValidationRecord
+        {
+            public ValidationRecord(string id)
+            {
+                Id = id;
+            }
+
+            public string Id { get; }
         }
     }
 }

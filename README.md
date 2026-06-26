@@ -5,6 +5,7 @@
 Gameplay Foundation is a small, standalone runtime package for pure gameplay primitives:
 
 - stable content identifiers
+- runtime-safe content validation reports and ID/reference helpers
 - lightweight gameplay tags
 - deterministic random sources
 - manual clocks and fixed ticks
@@ -32,12 +33,26 @@ Remote publication is a later release step. No remote URL is declared for this P
 ## Public API
 
 - `ContentId`, `GameplayTag`, `StatId`
+- `ContentValidationReport`, `ContentValidationIssue`, `ContentValidationSeverity`
+- `ContentReferenceSet`, `ContentValidation`
 - `IRandomSource`, `DeterministicRandom`
 - `IGameClock`, `ManualGameClock`, `FixedTickStepper`
 - `CooldownTimer`, `DurationTimer`
 - `StatModifierOperation`
 - `StatModifierHandle`, `ModifierSourceHandle`, `StatModifier`
 - `StatBlock`, `StatSnapshot`
+
+## Content Validation
+
+`ContentValidationReport` and `ContentValidation` provide small runtime-safe helpers for recurring authored-content checks:
+
+- unique stable IDs
+- required IDs
+- known reference sets
+- required references
+- simple numeric bounds
+
+Domain-specific validation stays with the package or template that owns the content. Gameplay Foundation does not know about weapons, enemies, movement, rewards, save data, JSON, ScriptableObjects, or editor UI.
 
 ## Modifier Evaluation
 

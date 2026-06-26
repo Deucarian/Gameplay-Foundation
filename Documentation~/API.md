@@ -6,6 +6,14 @@
 
 Use `ContentId` for authored or generated content, `GameplayTag` for classification, and `StatId` for stat definitions.
 
+## Content Validation
+
+`ContentValidationReport` collects `ContentValidationIssue` values with `Info`, `Warning`, or `Error` severity. `Succeeded` and `IsValid` are true when the report contains no errors.
+
+`ContentReferenceSet` stores known stable IDs for reference checks. `ContentValidation` contains small helpers for unique IDs, required IDs, required references, known references, and simple numeric bounds.
+
+The helpers are intentionally domain-neutral. Callers supply labels and keep gameplay-specific rules in their own packages or templates.
+
 ## Random
 
 `IRandomSource` is the deterministic random contract. `DeterministicRandom` is a seeded implementation intended for tests and simulation rules.
