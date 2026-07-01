@@ -1,0 +1,18 @@
+{
+  "packageId": "com.deucarian.gameplay-foundation",
+  "displayName": "Deucarian Gameplay Foundation",
+  "ownedCapabilities": [],
+  "runtimeAssemblies": [
+    "Deucarian.GameplayFoundation"
+  ],
+  "editorAssemblies": [],
+  "sampleAssemblies": [],
+  "testAssemblies": [
+    "Deucarian.GameplayFoundation.Tests"
+  ],
+  "requiredDependencies": [],
+  "optionalVersionDefinedDependencies": [],
+  "allowedDirectDebugCalls": [],
+  "allowedDirectUnityObjectLifetimeCalls": [],
+  "expectedSamplesRoot": "Samples~"
+}
