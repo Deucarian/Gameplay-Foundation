@@ -1,12 +1,15 @@
 {
   "packageId": "com.deucarian.gameplay-foundation",
   "displayName": "Deucarian Gameplay Foundation",
+  "samplePolicy": "compiled-example",
   "ownedCapabilities": [],
   "runtimeAssemblies": [
     "Deucarian.GameplayFoundation"
   ],
   "editorAssemblies": [],
-  "sampleAssemblies": [],
+  "sampleAssemblies": [
+    "Deucarian.GameplayFoundation.StatModifierPrimer"
+  ],
   "testAssemblies": [
     "Deucarian.GameplayFoundation.Tests"
   ],
