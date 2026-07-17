@@ -1,6 +1,6 @@
 {
   "name": "com.deucarian.gameplay-foundation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "displayName": "Deucarian Gameplay Foundation",
   "description": "Pure C# gameplay identifiers, deterministic random, clocks, ticks, tags, stats, modifiers, and generic timing primitives.",
   "license": "MIT",
