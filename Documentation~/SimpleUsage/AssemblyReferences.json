@@ -1,0 +1,17 @@
+{
+  "name": "Deucarian.GameplayFoundation.Samples.SimpleUsage",
+  "rootNamespace": "Deucarian.GameplayFoundation.Samples.SimpleUsage",
+  "references": [
+    "Deucarian.GameplayFoundation",
+    "Deucarian.GameplayFoundation.Unity"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

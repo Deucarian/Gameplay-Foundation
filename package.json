@@ -18,7 +18,9 @@
     "random",
     "ticks"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "com.deucarian.editor": "1.10.8"
+  },
   "samples": [
     {
       "displayName": "Stat Modifier Primer",
