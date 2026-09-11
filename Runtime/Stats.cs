@@ -165,6 +165,14 @@ namespace Deucarian.GameplayFoundation
         private readonly List<ModifierEntry> _modifiers = new List<ModifierEntry>();
         private ulong _nextSequence;
 
+        /// <summary>Whether this block contains a base value or modifier for the stat.</summary>
+        public bool Contains(StatId statId)
+        {
+            if (_baseValues.ContainsKey(statId)) return true;
+            foreach (var entry in _modifiers) if (entry.Modifier.StatId.Equals(statId)) return true;
+            return false;
+        }
+
         /// <summary>Sets the base value for a stat.</summary>
         public void SetBaseValue(StatId statId, double value)
         {
