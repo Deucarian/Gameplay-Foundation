@@ -1,0 +1,7 @@
+{
+  "name": "Deucarian.GameplayFoundation.Unity.Samples.DefinitionWorkflow",
+  "references": [
+    "Deucarian.GameplayFoundation",
+    "Deucarian.GameplayFoundation.Unity"
+  ]
+}
