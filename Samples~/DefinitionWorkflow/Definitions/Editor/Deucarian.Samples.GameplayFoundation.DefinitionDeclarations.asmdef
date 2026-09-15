@@ -1,0 +1,5 @@
+{
+  "name": "Deucarian.Samples.GameplayFoundation.DefinitionDeclarations",
+  "references": ["Deucarian.Editor", "Deucarian.GameplayFoundation.Editor"],
+  "includePlatforms": ["Editor"]
+}

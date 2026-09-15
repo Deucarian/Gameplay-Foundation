@@ -1,0 +1,20 @@
+{
+  "name": "Deucarian.GameplayFoundation.Editor",
+  "rootNamespace": "Deucarian.GameplayFoundation.Editor",
+  "references": [
+    "Deucarian.GameplayFoundation",
+    "Deucarian.Editor",
+    "Deucarian.GameplayFoundation.Unity"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -4,16 +4,23 @@
   "samplePolicy": "compiled-example",
   "ownedCapabilities": [],
   "runtimeAssemblies": [
-    "Deucarian.GameplayFoundation"
+    "Deucarian.GameplayFoundation",
+    "Deucarian.GameplayFoundation.Unity"
   ],
-  "editorAssemblies": [],
+  "editorAssemblies": [
+    "Deucarian.GameplayFoundation.Editor"
+  ],
   "sampleAssemblies": [
-    "Deucarian.GameplayFoundation.StatModifierPrimer"
+    "Deucarian.GameplayFoundation.StatModifierPrimer",
+    "Deucarian.GameplayFoundation.Unity.Samples.DefinitionWorkflow",
+    "Deucarian.Samples.GameplayFoundation.DefinitionDeclarations"
   ],
   "testAssemblies": [
     "Deucarian.GameplayFoundation.Tests"
   ],
-  "requiredDependencies": [],
+  "requiredDependencies": [
+    "com.deucarian.editor"
+  ],
   "optionalVersionDefinedDependencies": [],
   "allowedDirectDebugCalls": [],
   "allowedDirectUnityObjectLifetimeCalls": [],

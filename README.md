@@ -1,5 +1,15 @@
 # Deucarian Gameplay Foundation
 
+## Typed definition workflow
+
+The definition provides the initial value. Each StatsHost owns independent runtime values; changing this actor does not change the asset.
+
+Start with the [Definition Workflow walkthrough](Documentation~/DefinitionWorkflow.md).
+Import **Definition Workflow** in Package Manager for a configured sample scene
+and short caller scripts. Definitions can be edited as assets or editable C# declarations; generated keys
+work in code and Inspector dropdowns.
+
+
 ## Overview
 
 Gameplay Foundation is a small, standalone runtime package for pure gameplay primitives:
@@ -125,4 +135,8 @@ git diff --check
 
 ## License
 
-MIT. See [LICENSE.md](LICENSE.md).
+MIT. See `LICENSE.md`.
+
+## Simple typed usage
+
+See [Simple usage](Documentation~/SimpleUsage.md) for the short caller, Inspector selections and one-time scoped setup.
